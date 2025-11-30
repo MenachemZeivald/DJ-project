@@ -2,15 +2,15 @@
 const CONFIG = {
     images: [
         {
-            src: 'https://placehold.co/1080x1920/e0e0e0/909090?text=Background+1',
+            src: 'assets/photo1.jpg',
             textBounds: { x: 100, y: 500, w: 880, h: 400 }
         },
         {
-            src: 'https://placehold.co/1080x1920/f0f0e0/909090?text=Background+2',
+            src: 'assets/photo1.jpg',
             textBounds: { x: 100, y: 800, w: 880, h: 400 }
         },
         {
-            src: 'https://placehold.co/1080x1920/e0f0f0/909090?text=Background+3',
+            src: 'assets/photo1.jpg',
             textBounds: { x: 100, y: 600, w: 880, h: 400 }
         }
     ]
@@ -125,7 +125,6 @@ async function generateImage() {
 
     // Load Image
     const img = new Image();
-    img.crossOrigin = 'anonymous'; // Allow cross-origin images (fixes SecurityError)
     img.src = config.src;
 
     await new Promise((resolve, reject) => {
