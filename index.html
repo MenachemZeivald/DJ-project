@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditation Image Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for elegant typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Section 1: Landing Page -->
+    <section id="landing-page" class="screen active">
+        <div class="content-wrapper">
+            <h1 class="logo">Mindful Moments</h1>
+            <p class="business-text">
+                הפכו את המחשבות שלכם ליצירה ויזואלית.<br>
+                בחרו רקע, כתבו את המסר שלכם, ושתפו את ההשראה.
+            </p>
+
+            <a href="https://instagram.com" target="_blank" class="social-link">
+                <span>Instagram</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+
+            <button id="start-btn" class="primary-btn">התחל יצירה</button>
+        </div>
+    </section>
+
+    <!-- Section 2: Selection & Input -->
+    <section id="selection-screen" class="screen hidden">
+        <div class="content-wrapper">
+            <h2>בחרו רקע</h2>
+            <div class="image-grid">
+                <!-- Images will be injected here by JS or hardcoded -->
+                <div class="image-option selected" data-index="0">
+                    <img src="https://placehold.co/1080x1920/e0e0e0/909090?text=Background+1" alt="Background 1">
+                </div>
+                <div class="image-option" data-index="1">
+                    <img src="https://placehold.co/1080x1920/f0f0e0/909090?text=Background+2" alt="Background 2">
+                </div>
+                <div class="image-option" data-index="2">
+                    <img src="https://placehold.co/1080x1920/e0f0f0/909090?text=Background+3" alt="Background 3">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="user-text">המסר שלכם</label>
+                <textarea id="user-text" placeholder="כתבו כאן את המשפט שקיבלתם במדיטציה..." maxlength="100"></textarea>
+            </div>
+
+            <button id="generate-btn" class="primary-btn">צור תמונה</button>
+        </div>
+    </section>
+
+    <!-- Section 3: Result -->
+    <section id="result-screen" class="screen hidden">
+        <div class="content-wrapper">
+            <h2>היצירה שלכם</h2>
+            <div id="canvas-container">
+                <canvas id="result-canvas"></canvas>
+                <img id="result-image" alt="Generated Image">
+            </div>
+
+            <div class="action-buttons">
+                <button id="download-btn" class="secondary-btn">הורדה</button>
+                <button id="back-btn" class="text-btn">חזרה לעריכה</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

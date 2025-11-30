@@ -1,0 +1,236 @@
+:root {
+    --bg-color: #f7f7f5;
+    --text-color: #2c2c2c;
+    --accent-color: #8a8a8a;
+    --btn-bg: #2c2c2c;
+    --btn-text: #ffffff;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Assistant', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrolling on main body, handle in sections if needed */
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s;
+    background-color: var(--bg-color);
+    overflow-y: auto;
+}
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+.content-wrapper {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Typography */
+h1.logo {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.business-text {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 80%;
+}
+
+/* Buttons */
+.primary-btn {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    transition: transform 0.2s, opacity 0.2s;
+    margin-top: 1rem;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    padding: 0.8rem 2.5rem;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    transition: background-color 0.2s;
+}
+
+.secondary-btn:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.text-btn {
+    background: none;
+    border: none;
+    color: #666;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* Social Link */
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    margin: 1rem 0;
+    transition: opacity 0.2s;
+}
+
+.social-link:hover {
+    opacity: 0.7;
+}
+
+/* Selection Screen */
+.image-grid {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.image-option {
+    flex: 1;
+    aspect-ratio: 9/16;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: transform 0.2s, border-color 0.2s;
+    max-width: 120px; /* Limit size on desktop */
+}
+
+.image-option img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-option.selected {
+    border-color: var(--text-color);
+    transform: scale(1.05);
+}
+
+.input-group {
+    width: 100%;
+    text-align: right;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    resize: none;
+    height: 100px;
+    transition: border-color 0.2s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--text-color);
+}
+
+/* Result Screen */
+#canvas-container {
+    width: 100%;
+    max-width: 300px; /* Preview size */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+canvas {
+    display: none; /* We hide the canvas and show the image generated from it */
+}
+
+#result-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    h1.logo { font-size: 2.5rem; }
+    .image-grid { gap: 0.5rem; }
+}
