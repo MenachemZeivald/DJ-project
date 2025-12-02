@@ -1,11 +1,16 @@
+@font-face {
+    font-family: 'FbRegevTurbo-Regular';
+    src: url('assets/FbRegevTurbo-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --bg-color: #f7f7f5;
-    --text-color: #2c2c2c;
+    --text-color: #6e6a8e;
     --accent-color: #8a8a8a;
     --btn-bg: #2c2c2c;
     --btn-text: #ffffff;
-    --font-serif: 'Playfair Display', serif;
-    --font-sans: 'Assistant', sans-serif;
 }
 
 * {
@@ -15,7 +20,7 @@
 }
 
 body {
-    font-family: var(--font-sans);
+    font-family: 'FbRegevTurbo-Regular';
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -60,14 +65,14 @@ body {
 
 /* Typography */
 h1.logo {
-    font-family: var(--font-serif);
+    font-family: 'FbRegevTurbo-Regular';
     font-size: 3rem;
     font-weight: 400;
     margin-bottom: 1rem;
 }
 
 h2 {
-    font-family: var(--font-serif);
+    font-family: 'FbRegevTurbo-Regular';
     font-size: 2rem;
     font-weight: 400;
     margin-bottom: 1.5rem;
@@ -88,7 +93,7 @@ h2 {
     font-size: 1.1rem;
     border-radius: 50px;
     cursor: pointer;
-    font-family: var(--font-sans);
+    font-family: 'FbRegevTurbo-Regular';
     transition: transform 0.2s, opacity 0.2s;
     margin-top: 1rem;
 }
@@ -106,7 +111,7 @@ h2 {
     font-size: 1rem;
     border-radius: 50px;
     cursor: pointer;
-    font-family: var(--font-sans);
+    font-family: 'FbRegevTurbo-Regular';
     transition: background-color 0.2s;
 }
 
@@ -190,7 +195,7 @@ textarea {
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #fff;
-    font-family: var(--font-sans);
+    font-family: 'FbRegevTurbo-Regular';
     font-size: 1rem;
     resize: none;
     height: 100px;

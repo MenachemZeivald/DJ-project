@@ -6,11 +6,11 @@ const CONFIG = {
             textBounds: { x: 100, y: 500, w: 880, h: 400 }
         },
         {
-            src: 'assets/photo1.jpg',
+            src: 'assets/photo2.jpg',
             textBounds: { x: 100, y: 800, w: 880, h: 400 }
         },
         {
-            src: 'assets/photo1.jpg',
+            src: 'assets/photo3.jpg',
             textBounds: { x: 100, y: 600, w: 880, h: 400 }
         }
     ]
@@ -132,6 +132,15 @@ async function generateImage() {
         img.onerror = reject;
     });
 
+    // Wait for font to load
+    const fontSize = 60; // Base size
+    const fontSpec = `400 ${fontSize}px "FbRegevTurbo-Regular"`;
+    try {
+        await document.fonts.load(fontSpec);
+    } catch (e) {
+        console.warn('Font loading failed, using fallback', e);
+    }
+
     // Set Canvas Size to match Image
     canvas.width = img.width;
     canvas.height = img.height;
@@ -140,50 +149,18 @@ async function generateImage() {
     ctx.drawImage(img, 0, 0);
 
     // Configure Text
-    ctx.fillStyle = '#2c2c2c'; // Dark grey, elegant
+    ctx.fillStyle = '#6e6a8e'; // Dark grey, elegant
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
 
     // Dynamic Font Sizing
-    const fontSize = 60; // Base size
-    ctx.font = `400 ${fontSize}px "FbRegevTurbo-Regular", serif`;
+    ctx.font = `${fontSpec}, serif`;
 
-    // Draw Text with Wrapping
-    wrapText(ctx, state.userText,
-        config.textBounds.x + (config.textBounds.w / 2), // Center X
-        config.textBounds.y, // Start Y
-        config.textBounds.w,
-        fontSize * 1.5 // Line height
-    );
+    // Draw Text Centered
+    const x = canvas.width / 2;
+    const y = canvas.height / 2;
+    ctx.fillText(state.userText, x, y);
 
     // Export to Image Element
     resultImage.src = canvas.toDataURL('image/png');
-}
-
-function wrapText(context, text, x, y, maxWidth, lineHeight) {
-    const words = text.split(' ');
-    let line = '';
-    const lines = [];
-
-    for (let n = 0; n < words.length; n++) {
-        const testLine = line + words[n] + ' ';
-        const metrics = context.measureText(testLine);
-        const testWidth = metrics.width;
-        if (testWidth > maxWidth && n > 0) {
-            lines.push(line);
-            line = words[n] + ' ';
-        } else {
-            line = testLine;
-        }
-    }
-    lines.push(line);
-
-    // Calculate total height to vertically center
-    const totalHeight = lines.length * lineHeight;
-    let currentY = y - (totalHeight / 2) + (lineHeight / 2); // Adjust starting Y to center block
-
-    for (let i = 0; i < lines.length; i++) {
-        context.fillText(lines[i], x, currentY);
-        currentY += lineHeight;
-    }
 }
