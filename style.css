@@ -21,6 +21,10 @@
 
 body {
     font-family: 'FbRegevTurbo-Regular';
+    background-image: url('assets/bgimg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;

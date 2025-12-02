@@ -134,7 +134,7 @@ async function generateImage() {
 
     // Wait for font to load
     const fontSize = 120; // Base size
-    const fontSpec = `700 ${fontSize}px "FbRegevTurbo-Regular"`;
+    const fontSpec = `500 ${fontSize}px "FbRegevTurbo-Regular"`;
     try {
         await document.fonts.load(fontSpec);
     } catch (e) {
@@ -149,7 +149,7 @@ async function generateImage() {
     ctx.drawImage(img, 0, 0);
 
     // Configure Text
-    ctx.fillStyle = '#6e6a8e'; // Dark grey, elegant
+    ctx.fillStyle = state.selectedImageIndex === 0 ? '#6e6a8e' : '#3d3d3d'; // Dark grey, elegant
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
 
