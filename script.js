@@ -146,7 +146,7 @@ async function generateImage() {
 
     // Dynamic Font Sizing
     const fontSize = 60; // Base size
-    ctx.font = `400 ${fontSize}px "Playfair Display", serif`;
+    ctx.font = `400 ${fontSize}px "FbRegevTurbo-Regular", serif`;
 
     // Draw Text with Wrapping
     wrapText(ctx, state.userText,
