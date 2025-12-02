@@ -133,8 +133,8 @@ async function generateImage() {
     });
 
     // Wait for font to load
-    const fontSize = 60; // Base size
-    const fontSpec = `400 ${fontSize}px "FbRegevTurbo-Regular"`;
+    const fontSize = 120; // Base size
+    const fontSpec = `700 ${fontSize}px "FbRegevTurbo-Regular"`;
     try {
         await document.fonts.load(fontSpec);
     } catch (e) {

@@ -134,7 +134,7 @@ h2 {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--text-color);
+    color: var(--btn-bg);
     text-decoration: none;
     font-weight: 600;
     margin: 1rem 0;
